@@ -13,12 +13,13 @@ body {
   padding: 0;
   font-family: $font-family;
   font-size: 1.6rem;
+  font-weight: 500;
+  color: $gray-text;
   background-color: #fff;
 }
 
 img {
   height: auto;
-  max-width: 100%;
   object-fit: cover;
 }
 
@@ -46,9 +47,27 @@ ul {
 }
 
 .container {
-  max-width: 1180px;
   padding: 0 $container-offset;
   max-width: $container-width;
+  margin: 0 auto;
+}
+
+
+.decor {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 3px;
+    background-color: $main-color;
+    width: 15px;
+    height: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
 }
 
 .btn-reset {
@@ -58,28 +77,37 @@ ul {
   cursor: pointer;
 }
 
-.input-reset {
-  -webkit-appearance: none;
-  appearance: none;
-  border: none;
-  border-radius: 0;
-  background-color: #fff;
+.btn {
+  background-color: $main-color;
+  font-weight: 700;
+  border-radius: 50px;
+  color: $gray-text;
+  transition: all 200ms ease-in-out;
+  padding: 25px 45px;
+  position: relative;
 
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    display: none;
+  &::before {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $main-color;
+    width: 100%;
+    border-radius: 50px;
+    transition: all 200ms ease-in-out;
+    z-index: -1;
   }
-}
 
-.visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  clip: rect(0 0 0 0);
+  &:hover {
+    background-color: lighten($main-color, 15);
+
+    &::before {
+      opacity: 1;
+      left: 70%;
+      background-color: lighten($main-color, 35);
+    }
+  }
 }

@@ -1,0 +1,55 @@
+.decision {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 60px;
+
+  @include tablet {
+    .title {
+      text-align: center;
+    }
+
+    .problems__list {
+      flex-direction: column;
+      padding-left: 30px;
+    }
+  }
+
+  .problems__list {
+    width: 100%;
+  }
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  &__img {
+    margin-right: 20px;
+
+    img {
+      height: 400px;
+    }
+
+    @include desctop {
+      img {
+        height: 250px;
+      }
+    }
+
+    @include tablet {
+      position: absolute;
+      right: 0;
+      top: 36%;
+      margin-right: 0;
+
+      img {
+        height: 200px;
+      }
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

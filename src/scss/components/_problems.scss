@@ -1,0 +1,72 @@
+.problems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0;
+
+  @include tablet {
+    justify-content: center;
+  }
+
+  &__img {
+    margin-right: 80px;
+
+    transition: all 200ms ease-in-out;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background-color: lighten($color: $main-color, $amount: 40);
+
+    &:hover {
+      transform: perspective(300px) rotateX(-1.27deg) rotateY(-2.18deg) scale3d(1, 1, 1);
+    }
+
+    @include desctop {
+      img {
+        width: 250px;
+      }
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include tablet {
+      width: 80%;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    width: 50%;
+    margin-bottom: 30px;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-weight: 300;
+      max-width: 70%;
+
+      @include tablet {
+        max-width: 90%;
+      }
+    }
+  }
+}

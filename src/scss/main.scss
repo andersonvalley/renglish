@@ -9,4 +9,49 @@
 @import './mixins/burger';
 
 @import './components/header';
+@import './components/nav';
+@import './components/hero';
+@import './components/problems';
+@import './components/decision';
+@import './components/whyneed';
 @import './components/footer';
+
+.title {
+  font-size: 5rem;
+  line-height: 8rem;
+  color: $bl-text;
+  margin-bottom: 10px;
+
+  &__accent {
+    background-color: $main-color;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding: 0 30px;
+
+    &-round {
+      border-bottom-left-radius: 50px;
+    }
+  }
+
+  @include desctop {
+    font-size: 4.5rem;
+  }
+
+  @include mobile {
+    font-size: 3.5rem;
+    line-height: 5rem;
+  }
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 2.5rem;
+  max-width: 55%;
+  margin-top: 20px;
+
+  @include desctop {
+    font-size: 2rem;
+    max-width: 75%;
+  }
+}

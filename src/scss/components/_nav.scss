@@ -1,0 +1,34 @@
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .phone {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+}
+
+.nav__item {
+  a {
+    transition: all 200ms ease-in-out;
+    &:hover {
+      color: darken($color: $gray-text, $amount: 15);
+    }
+  }
+}
+
+.nav__item:not(:last-child) {
+  margin-right: 15px;
+}
