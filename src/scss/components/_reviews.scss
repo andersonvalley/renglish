@@ -1,0 +1,95 @@
+.reviews {
+  padding-bottom: 60px;
+  
+  .title {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include desctop {
+      flex-direction: column-reverse;
+      height: 620px;
+    }
+  }
+
+  .row {
+    width: 50%;
+    border-radius: 25px;
+    height: 300px;
+
+    @include desctop {
+      width: 70%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .youtube {
+    background-image: url('../../img/yo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &__text {
+      background-color: $gray-bg;
+      position: absolute;
+      bottom: 0;
+      padding: 20px 20px;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+
+      p {
+        color: $bl-text;
+        font-size: 1.5rem;
+      }
+
+      span {
+        font-weight: 400;
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-top: 7px;
+      }
+    }
+
+    .play {
+      img {
+        transition: all 200ms ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .vk {
+    background-image: url('../../img/svg/vk.svg');
+    padding: 60px;
+    position: relative;
+    margin-left: 40px;
+
+    @include desctop {
+      margin-left: 0;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 2.6rem;
+    }
+
+    a {
+      padding: 16px 25px;
+      position: absolute;
+      bottom: 60px;
+    }
+  }
+}

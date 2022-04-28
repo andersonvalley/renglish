@@ -52,7 +52,6 @@ ul {
   margin: 0 auto;
 }
 
-
 .decor {
   position: relative;
 
@@ -108,6 +107,24 @@ ul {
       opacity: 1;
       left: 70%;
       background-color: lighten($main-color, 35);
+    }
+  }
+
+  &-white {
+    background-color: #fff;
+    border: 3px solid #fff;
+
+    &:hover {
+      background-color: $main-color;
+      color: #000;
+    }
+  }
+
+  &-test {
+    color: rgb(200, 40, 225);
+
+    &:hover {
+      color: darken(rgb(200, 40, 225), 10);
     }
   }
 }

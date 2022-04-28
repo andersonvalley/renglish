@@ -66,6 +66,28 @@ var hoverImg = function hoverImg() {
 
 /***/ }),
 
+/***/ "./src/js/components/youtube.js":
+/*!**************************************!*\
+  !*** ./src/js/components/youtube.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "playVideo": () => (/* binding */ playVideo)
+/* harmony export */ });
+var playVideo = function playVideo() {
+  var player = document.querySelector('.youtube');
+  document.querySelector('.play').addEventListener('click', function () {
+    player.classList.add('active');
+    var html = "\n    <iframe width=\"800\" height=\"315\" src=\"https://www.youtube.com/embed/d-wb0O5kSNc\"\n      title=\"YouTube video player\" frameborder=\"0\"\n      allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen>\n    </iframe>\n      ";
+    player.innerHTML = html;
+  });
+};
+
+/***/ }),
+
 /***/ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js":
 /*!************************************************************************!*\
   !*** ./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js ***!
@@ -170,6 +192,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_hoverImg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/hoverImg */ "./src/js/components/hoverImg.js");
 /* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! smooth-scroll */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js");
 /* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(smooth_scroll__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_youtube__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/youtube */ "./src/js/components/youtube.js");
+
 
 
 
@@ -177,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var scroll = new (smooth_scroll__WEBPACK_IMPORTED_MODULE_2___default())('a[href*="#"]');
   (0,_components_burger__WEBPACK_IMPORTED_MODULE_0__.burger)();
   (0,_components_hoverImg__WEBPACK_IMPORTED_MODULE_1__.hoverImg)();
+  (0,_components_youtube__WEBPACK_IMPORTED_MODULE_3__.playVideo)();
 });
 })();
 

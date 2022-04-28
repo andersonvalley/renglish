@@ -3,7 +3,6 @@
   position: relative;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 60px;
 
   @include tablet {
     .title {
@@ -22,6 +21,15 @@
 
   .title {
     margin-bottom: 40px;
+  }
+
+  .bubbles {
+    margin-top: 30px;
+    gap: 8px;
+  }
+
+  .bubbles__item {
+    padding: 13px;
   }
 
   &__img {
@@ -52,4 +60,20 @@
       display: none;
     }
   }
+
+  &__img-sec {
+    @include desctop {
+      img {
+        height: 300px;
+      }
+    }
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+}
+
+#decision {
+  padding-bottom: 60px;
 }
