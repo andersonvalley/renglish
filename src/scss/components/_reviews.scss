@@ -99,5 +99,13 @@
       position: absolute;
       bottom: 60px;
     }
+
+    .btn {
+      &:hover {
+        &::before {
+          display: none;
+        }
+      }
+    }
   }
 }
