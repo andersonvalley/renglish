@@ -71,6 +71,161 @@ var hoverImg = function hoverImg() {
 
 /***/ }),
 
+/***/ "./src/js/components/openModal.js":
+/*!****************************************!*\
+  !*** ./src/js/components/openModal.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "openModal": () => (/* binding */ openModal)
+/* harmony export */ });
+/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ "./src/js/components/test.js");
+
+var openModal = function openModal() {
+  var btns = document.querySelectorAll('*[data-modal]');
+  var modalOverflow = document.querySelector('.overflow');
+  var content = modalOverflow.querySelector('.modal__content');
+  var html = "\n      <form action=\"/\" class=\"form\">\n        <div class=\"form__title\">\n          \u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0444\u043E\u0440\u043C\u0443\n          \u0438 \u043C\u044B \u0441\u0432\u044F\u0436\u0435\u043C\u0441\u044F \u0441 \u0432\u0430\u043C\u0438!\n        </div>\n        <input class=\"form__input\" type=\"text\" name=\"name\" placeholder=\"\u0412\u0430\u0448\u0435 \u0438\u043C\u044F\">\n        <input class=\"form__input tel\" type=\"tel\" name=\"tel\" placeholder=\"\u0412\u0430\u0448 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\" required>\n        <button class=\"btn-reset btn\">\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C</button>\n      </form>\n    ";
+
+  function openModal(item) {
+    modalOverflow.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    content.textContent = '';
+    content.insertAdjacentHTML('beforeend', html);
+
+    if (item.getAttribute('data-test')) {
+      (0,_test__WEBPACK_IMPORTED_MODULE_0__.test)(content, html);
+    }
+  }
+
+  function hideModal() {
+    modalOverflow.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modalOverflow.addEventListener('click', function (e) {
+    if (e.target.className === 'modal__close' || e.target.className === 'modal') {
+      hideModal();
+    }
+  });
+  btns.forEach(function (item) {
+    item.addEventListener('click', function () {
+      return openModal(item);
+    });
+  });
+};
+
+/***/ }),
+
+/***/ "./src/js/components/test.js":
+/*!***********************************!*\
+  !*** ./src/js/components/test.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "test": () => (/* binding */ test)
+/* harmony export */ });
+var questions = [{
+  id: 1,
+  quest: 'Do you speak … English?',
+  ans: {
+    1: 'in',
+    2: 'on',
+    3: '-'
+  }
+}, {
+  id: 2,
+  quest: 'I … this film',
+  ans: {
+    1: 'have seen',
+    2: 'saw',
+    3: 'was see'
+  }
+}, {
+  id: 3,
+  quest: 'Tom is … than me',
+  ans: {
+    1: 'more tall',
+    2: 'taller',
+    3: 'more taller'
+  }
+}, {
+  id: 4,
+  quest: 'You should … it yesterday',
+  ans: {
+    1: 'have done',
+    2: 'do',
+    3: 'did'
+  }
+}, {
+  id: 5,
+  quest: '… less you know, … better you sleep',
+  ans: {
+    1: 'than …, then',
+    2: 'than …., the',
+    3: 'the …, the…'
+  }
+}];
+var test = function test(content, form) {
+  var current = 0;
+  var answers = [];
+
+  function rerender() {
+    content.textContent = '';
+    content.insertAdjacentHTML('beforeend', html());
+    var next = content.querySelector('.next');
+    var prev = content.querySelector('.prev');
+    next.addEventListener('click', nextQuestion);
+
+    if (current > 0) {
+      prev.addEventListener('click', prevQuestion);
+      prev.disabled = false;
+    }
+  }
+
+  function html() {
+    return "\n      <div class=\"test__header\">\n        <p>\n          \u041E\u043F\u0440\u0435\u0434\u0435\u043B\u0438\u0442\u0435 \u0441\u0432\u043E\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u044F\u0437\u044B\u043A\u0430, \u0447\u0442\u043E\u0431\u044B \u043C\u044B \u043C\u043E\u0433\u043B\u0438 \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u0442\u044C \u0434\u043B\u044F \u0432\u0430\u0441 \u0433\u0440\u0443\u043F\u043F\u0443\n        </p>\n        <span class=\"test__count\">".concat(current + 1, "/").concat(questions.length, "</span>\n      </div>\n\n      <div class=\"test__content\">\n        <p class=\"quest\">").concat(questions[current].id, ". ").concat(questions[current].quest, "</p>\n          <form name=\"data\">\n            <div class=\"test__ans\">\n            <input type=\"radio\" id=\"1\" checked name=\"contact\" value=\"").concat(questions[current].ans[1], "\">\n            <label for=\"1\">").concat(questions[current].ans[1], "</label>\n          </div>\n          <div class=\"test__ans\">\n            <input type=\"radio\" id=\"2\" name=\"contact\" value=\"").concat(questions[current].ans[2], "\">\n            <label for=\"2\">").concat(questions[current].ans[2], "</label>\n          </div>\n          <div class=\"test__ans\">\n            <input type=\"radio\" id=\"3\" name=\"contact\" value=\"").concat(questions[current].ans[3], "\">\n            <label for=\"3\">").concat(questions[current].ans[3], "</label>\n          </div>\n        </form>\n      </div>\n  \n      <div class=\"test__btns\">\n        <button disabled class=\"prev btn-reset btn\">\u2190 \u041D\u0430\u0437\u0430\u0434</button>\n        <button class=\"next btn-reset btn\">").concat(current + 1 === questions.length ? 'Результат' : 'Далее →', "</button>\n      </div>\n    ");
+  }
+
+  rerender();
+
+  function nextQuestion() {
+    var answered = document.querySelector('input[name="contact"]:checked').value;
+    answers[questions[current].quest] = answered;
+    current += 1;
+
+    if (current + 1 > questions.length) {
+      content.textContent = '';
+      content.insertAdjacentHTML('beforeend', form);
+      return;
+    }
+
+    rerender();
+    console.log(answers);
+  }
+
+  function prevQuestion() {
+    delete answers[questions[current].quest];
+    current -= 1;
+
+    if (current + 1 > questions.length) {
+      content.textContent = '';
+      content.insertAdjacentHTML('beforeend', form);
+      return;
+    }
+
+    rerender();
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/components/validatePhone.js":
 /*!********************************************!*\
   !*** ./src/js/components/validatePhone.js ***!
@@ -249,6 +404,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(smooth_scroll__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_youtube__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/youtube */ "./src/js/components/youtube.js");
 /* harmony import */ var _components_validatePhone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/validatePhone */ "./src/js/components/validatePhone.js");
+/* harmony import */ var _components_openModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/openModal */ "./src/js/components/openModal.js");
+
 
 
 
@@ -260,6 +417,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_components_hoverImg__WEBPACK_IMPORTED_MODULE_1__.hoverImg)();
   (0,_components_youtube__WEBPACK_IMPORTED_MODULE_3__.playVideo)();
   (0,_components_validatePhone__WEBPACK_IMPORTED_MODULE_4__.validatePhone)();
+  (0,_components_openModal__WEBPACK_IMPORTED_MODULE_5__.openModal)();
 });
 })();
 

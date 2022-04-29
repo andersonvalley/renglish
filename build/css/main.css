@@ -752,7 +752,21 @@ ul {
   width: 100%;
   height: 100vh;
   background-color: rgba(24, 24, 24, 0.663);
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.overflow.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overflow.open-test {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal {
@@ -765,15 +779,26 @@ ul {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  height: 100vh;
 }
 
 .modal__content {
-  position: absolute;
-  top: 50%;
   background-color: #fff;
   border-radius: 20px;
   width: 520px;
   padding: 30px;
+}
+
+.modal__content .form__title {
+  margin-top: 0;
+}
+
+.modal__content .form .form__input {
+  width: 100%;
+}
+
+.modal__content .form .btn {
+  width: 100%;
 }
 
 .modal__close {
@@ -795,6 +820,11 @@ ul {
   -webkit-transition: all 200 ms ease-in-out;
   -o-transition: all 200 ms ease-in-out;
   transition: all 200 ms ease-in-out;
+  cursor: pointer;
+}
+
+.modal__close svg {
+  pointer-events: none;
 }
 
 .modal__close:hover {
@@ -811,10 +841,70 @@ ul {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-bottom: 30px;
+  font-size: 1.6rem;
 }
 
-.test__header h6 {
+.test__header p {
   max-width: 80%;
+}
+
+.quest {
+  margin-bottom: 20px;
+}
+
+.test__ans {
+  margin-bottom: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.test__ans label {
+  margin-left: 10px;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.test__ans input {
+  width: 20px;
+  height: 20px;
+}
+
+.test__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.test__btns .btn {
+  padding: 10px 20px;
+}
+
+.test__btns .btn:hover::before {
+  display: none;
+}
+
+.test__content {
+  margin-bottom: 60px;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.btn[disabled]:hover {
+  background-color: #ffd51b;
 }
 
 .price {
@@ -824,6 +914,10 @@ ul {
 .price .title {
   max-width: 70%;
   margin-bottom: 30px;
+}
+
+.card {
+  margin-bottom: 40px;
 }
 
 .card__categ {
@@ -1409,6 +1503,16 @@ ul {
 
   .dialog__item-reverse .bubbles__item {
     margin-right: 5px;
+  }
+
+  .modal__content {
+    width: 100%;
+    border-radius: 0;
+    height: 100vh;
+  }
+
+  .modal__close svg g {
+    fill: #636363;
   }
 
   .contacts__info .title {

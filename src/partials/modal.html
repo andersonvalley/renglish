@@ -1,17 +1,15 @@
 <div class="overflow">
   <div class="modal">
     <div class="modal__content">
-      <div class="test__header">
-        <h6>
-          Определите свой уровень языка, чтобы мы могли подобрать для вас группу
-        </h6>
-        <span class="test__count">1/5</span>
-      </div>
-      <div class="test__content">
-        <p class="quest">1. Do you speak … English?</p>
-        <input type="radio" id="1" name="contact" value="in">
-        <label for="1">in</label>
-      </div>
+      <form action="/" class="form">
+        <div class="form__title">
+          Заполните форму
+          и мы свяжемся с вами!
+        </div>
+        <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+        <input class="form__input tel" type="tel" name="tel" placeholder="Ваш телефон" required>
+        <button class="btn-reset btn">Отправить</button>
+      </form>
     </div>
   </div>
   <div class="modal__close">
