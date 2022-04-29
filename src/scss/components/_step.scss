@@ -1,0 +1,106 @@
+.firstStep {
+  &__wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    img {
+      height: 350px;
+
+      @include desctop {
+        height: 300px;
+      }
+
+      @include mobile {
+        height: 250px;
+      }
+    }
+  }
+}
+
+.dialog {
+  border-radius: 20px;
+  border: 4px solid #edf2f5;
+  overflow: scroll;
+  height: 400px;
+  padding: 30px;
+  margin-top: 30px;
+
+  @include mobile {
+    padding: 15px;
+  }
+
+  p {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    img {
+      position: relative;
+      top: 20px;
+      width: 80px;
+    }
+
+    @include tablet {
+      margin-bottom: 10px;
+
+      img {
+        width: 50px;
+      }
+    }
+
+    @include small-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include mobile {
+      img {
+        width: 40px;
+      }
+    }
+
+    .bubbles__item {
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 0;
+      margin-left: 15px;
+      background-color: $main-color;
+      padding: 15px;
+      max-width: 450px;
+
+      @include mobile {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__item-reverse {
+    justify-content: flex-end;
+
+    img {
+      order: 1;
+    }
+
+    .bubbles__item {
+      background-color: $gray-bg;
+      margin-right: 15px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 0;
+
+      @include mobile {
+        margin-right: 5px;
+      }
+    }
+  }
+}

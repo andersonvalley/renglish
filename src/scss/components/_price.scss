@@ -1,0 +1,101 @@
+.price {
+  padding-top: 60px;
+
+  .title {
+    max-width: 70%;
+    margin-bottom: 30px;
+
+    @include desctop {
+      max-width: 100%;
+    }
+  }
+}
+
+.card {
+  &__categ {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: $bl-text;
+    margin-bottom: 25px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 70px;
+
+    @include desctop {
+      grid-gap: 20px;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__img {
+    img {
+      height: 250px;
+    }
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    border-radius: 25px;
+    background-color: $gray-bg;
+    transition: all 200ms ease-in-out;
+    // width: 380px;
+    min-width: auto;
+    cursor: pointer;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+      padding: 15px 35px;
+      font-weight: 500;
+
+      &:hover {
+        background-color: lighten($color: $main-color, $amount: 35) !important;
+      }
+    }
+
+    p {
+      font-weight: 300;
+      margin-bottom: 60px;
+    }
+
+    &:hover {
+      background-color: $main-color;
+
+      .btn {
+        background-color: #fff;
+      }
+
+      .btn::before {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  &__info {
+    margin-bottom: 40px;
+    flex-grow: 1;
+
+    span {
+      display: block;
+      color: rgb(30, 30, 30);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+  }
+}
