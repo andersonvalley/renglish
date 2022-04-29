@@ -1,0 +1,125 @@
+.contacts {
+  display: flex;
+  justify-content: space-betweens;
+  align-items: center;
+  padding: 60px 0;
+
+  @include desctop {
+    flex-direction: column;
+  }
+
+  &__info {
+    margin-right: 70px;
+    margin-bottom: 30px;
+
+    @include desctop {
+      margin-right: 0;
+    }
+
+    .title {
+      @include mobile {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 1.8rem;
+
+    p {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__map {
+    border-radius: 20px;
+    width: 50%;
+
+    .ymaps-2-1-79-map ymaps {
+      border-radius: 20px !important;
+    }
+
+    @include desctop {
+      width: 100%;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+
+  &__item {
+    transition: all 200ms ease-in-out;
+
+    img {
+      width: 40px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.form {
+  &__title {
+    color: $bl-text;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 40px;
+  }
+
+  &__input {
+    border: none;
+    background-color: $gray-bg;
+    transition: all 200ms ease-in-out;
+    color: $bl-text;
+    border-radius: 50px;
+    padding: 17px 30px;
+    display: block;
+    width: 80%;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    &::placeholder {
+      font-weight: 300;
+    }
+
+    &:hover {
+      background-color: darken($color: $gray-bg, $amount: 2);
+    }
+
+    &:focus {
+      background-color: darken($color: $gray-bg, $amount: 4);
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .btn {
+    padding: 17px 70px;
+    margin-top: 20px;
+
+    &:hover {
+      &::before {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

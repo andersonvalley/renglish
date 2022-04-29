@@ -1,5 +1,5 @@
 .price {
-  padding-top: 60px;
+  padding-top: 70px;
 
   .title {
     max-width: 70%;
@@ -34,13 +34,12 @@
   }
 
   &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     img {
       height: 250px;
-    }
-
-    @include tablet {
-      display: flex;
-      justify-content: center;
     }
   }
 

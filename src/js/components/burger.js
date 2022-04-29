@@ -1,6 +1,11 @@
 export const burger = () => {
   const burgerBtn = document.querySelector('.burger')
 
+  function hideMenu() {
+    burgerBtn.classList.remove('burger--active')
+    document.body.style.overflow = ''
+  }
+
   function showMenu() {
     burgerBtn.classList.toggle('burger--active')
 
@@ -8,12 +13,12 @@ export const burger = () => {
       document.body.style.overflow = 'hidden'
 
       document.querySelector('.header__nav').addEventListener('click', e => {
+        if (e.target.getAttribute('data-link') === 'link') hideMenu()
         if (e.target !== e.currentTarget) return
-        burgerBtn.classList.remove('burger--active')
-        document.body.style.overflow = ''
+        hideMenu()
       })
     } else {
-      document.body.style.overflow = ''
+      hideMenu()
     }
   }
 
