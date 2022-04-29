@@ -14,11 +14,7 @@
 .overflow.open {
   opacity: 1;
   visibility: visible;
-}
-
-.overflow.open-test {
-  opacity: 1;
-  visibility: visible;
+  transition: all 200ms ease-in-out;
 }
 
 .modal {
@@ -37,6 +33,7 @@
       width: 100%;
       border-radius: 0;
       height: 100vh;
+      padding-top: 90px;
     }
 
     .form__title {

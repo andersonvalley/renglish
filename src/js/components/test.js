@@ -1,12 +1,14 @@
+import { validatePhone } from './validatePhone'
+
 const questions = [
-  { id: 1, quest: 'Do you speak … English?', ans: { 1: 'in', 2: 'on', 3: '-' } },
-  { id: 2, quest: 'I … this film', ans: { 1: 'have seen', 2: 'saw', 3: 'was see' } },
-  { id: 3, quest: 'Tom is … than me', ans: { 1: 'more tall', 2: 'taller', 3: 'more taller' } },
-  { id: 4, quest: 'You should … it yesterday', ans: { 1: 'have done', 2: 'do', 3: 'did' } },
+  { id: 1, quest: 'Do you speak … English?', ans: ['in', 'on', '-'] },
+  { id: 2, quest: 'I … this film', ans: ['have seen', 'saw', 'was see'] },
+  { id: 3, quest: 'Tom is … than me', ans: ['more tall', 'taller', 'more taller'] },
+  { id: 4, quest: 'You should … it yesterday', ans: ['have done', 'do', 'did'] },
   {
     id: 5,
     quest: '… less you know, … better you sleep',
-    ans: { 1: 'than …, then', 2: 'than …., the', 3: 'the …, the…' },
+    ans: ['than …, then', 'than …., the', 'the …, the…'],
   },
 ]
 
@@ -38,20 +40,18 @@ export const test = (content, form) => {
 
       <div class="test__content">
         <p class="quest">${questions[current].id}. ${questions[current].quest}</p>
-          <form name="data">
-            <div class="test__ans">
-            <input type="radio" id="1" checked name="contact" value="${questions[current].ans[1]}">
-            <label for="1">${questions[current].ans[1]}</label>
-          </div>
-          <div class="test__ans">
-            <input type="radio" id="2" name="contact" value="${questions[current].ans[2]}">
-            <label for="2">${questions[current].ans[2]}</label>
-          </div>
-          <div class="test__ans">
-            <input type="radio" id="3" name="contact" value="${questions[current].ans[3]}">
-            <label for="3">${questions[current].ans[3]}</label>
-          </div>
-        </form>
+          ${questions[current].ans
+            .map((item, index) => {
+              return `
+                <div class="test__ans">
+                  <input type="radio" id="${index + 1}" ${
+                index === 0 && 'checked'
+              } name="contact" value="${item}">
+                  <label for="${index + 1}">${item}</label>
+                </div>
+            `
+            })
+            .join('')}
       </div>
   
       <div class="test__btns">
@@ -74,6 +74,7 @@ export const test = (content, form) => {
     if (current + 1 > questions.length) {
       content.textContent = ''
       content.insertAdjacentHTML('beforeend', form)
+      validatePhone()
       return
     }
 
@@ -90,6 +91,7 @@ export const test = (content, form) => {
     if (current + 1 > questions.length) {
       content.textContent = ''
       content.insertAdjacentHTML('beforeend', form)
+
       return
     }
 

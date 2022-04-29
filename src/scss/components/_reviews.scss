@@ -1,6 +1,6 @@
 .reviews {
   padding-bottom: 60px;
-  
+
   .title {
     margin-bottom: 30px;
   }
@@ -79,6 +79,16 @@
 
     @include desctop {
       margin-left: 0;
+    }
+
+    @include mobile {
+      p {
+        font-size: 1.6rem;
+      }
+
+      .btn {
+        padding: 10px;
+      }
     }
 
     p {

@@ -1,4 +1,5 @@
 import { test } from './test'
+import { validatePhone } from './validatePhone'
 
 export const openModal = () => {
   const btns = document.querySelectorAll('*[data-modal]')
@@ -23,10 +24,17 @@ export const openModal = () => {
 
     content.textContent = ''
     content.insertAdjacentHTML('beforeend', html)
+    validatePhone()
 
     if (item.getAttribute('data-test')) {
       test(content, html)
     }
+
+    content.querySelector('.btn').addEventListener('submit', e => {
+      e.preventDefault()
+
+      hideModal()
+    })
   }
 
   function hideModal() {
